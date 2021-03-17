@@ -38,7 +38,7 @@ context('Reliza consultas sobre o CPF', () => {
     })
 
     const cpf01 = {
-        cpf: '05313344900',
+        cpf: '80489042090',
     }
 
     const cpf02 = {
