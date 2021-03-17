@@ -12,7 +12,7 @@ context('Reliza consultas sobre o CPF', () => {
     })
 
     after(() => {
-        //cy.end()
+        cy.end()
     })
 
     it('C01 - Consulta CPF válido.', () => {
