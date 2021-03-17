@@ -11,13 +11,13 @@ context('Testes de Login', () => {
         Login.acessaGmail()
     })
 
-    it.only('01-Tenta acessar conta do gmail', () => {
+    it('01-Tenta acessar conta do gmail', () => {
         Login.loginSemSenha(login01);
         cy.xpath(retornoAcessoGmail, { timeout: 1000 })
             .should('contain.text', 'Não foi possível fazer o login')
     })
 
-    it.only('02-Tenta acessar sem informar conta do gmail', () => {
+    it('02-Tenta acessar sem informar conta do gmail', () => {
         Login.loginSemSenha(login02);
         cy.get(retornoAcessoGmail2, { timeout: 1000 })
             .should('have.text', 'Digite um e-mail ou número de telefone')

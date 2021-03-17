@@ -1,0 +1,6 @@
+cypress/screenshots/testes/cpf/consultaCpf.js/Testes QA -- C01 - Consulta CPF válido (failed).png
+cypress/screenshots/testes/cpf/consultaCpf.js/Testes QA -- C02 - Consulta CPF invalido (failed).png
+cypress/screenshots/testes/cpf/consultaCpf.js/Testes QA -- C03 - Consulta sem informar nada no campo CPF -- before each hook (failed).png
+cypress/videos/testes/cpf/consultaCpf.js.mp4
+cypress/videos/testes/cpf/consultaCpf.js.mp4.meta
+cypress/videos/testes/cpf/consultaCpf.js-compressed.mp4
