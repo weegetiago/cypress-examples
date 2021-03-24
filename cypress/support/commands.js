@@ -27,7 +27,7 @@
 Cypress.Commands.add('getToken', (login) => {
     cy.request({
         method: 'POST',
-        url: 'https://barrigarest.wcaquino.me/signin',
+        url: '/signin',
         body: {
             email: login.user,
             redirecionamento: false,
@@ -38,6 +38,22 @@ Cypress.Commands.add('getToken', (login) => {
         .then(token => {
             return token
         })
+})
+
+Cypress.Commands.add('buscaContaPorNome', name => {
+    //TODO AJUSTAR
+    cy.getToken('tw@tw', 'tw').then(token => { //passar login por ()
+        cy.request({
+            method: 'GET',
+            url: '/contas',
+            headers: { Authorization: `JWT ${token}` },
+            qs: {
+                nome: name
+            }
+        }).then(res => {
+            return res.body[0].id
+        })
+    })
 })
 
 //TODO Caso queria usar como comands
