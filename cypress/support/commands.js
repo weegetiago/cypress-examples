@@ -24,7 +24,12 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('getToken', (login) => {
+const login = {
+    user: 'tw@tw',
+    pass: 'tw'
+}
+
+Cypress.Commands.add('getToken', (user, pass) => {
     cy.request({
         method: 'POST',
         url: '/signin',
@@ -41,8 +46,7 @@ Cypress.Commands.add('getToken', (login) => {
 })
 
 Cypress.Commands.add('buscaContaPorNome', name => {
-    //TODO AJUSTAR
-    cy.getToken('tw@tw', 'tw').then(token => { //passar login por ()
+    cy.getToken(login).then(token => {
         cy.request({
             method: 'GET',
             url: '/contas',
@@ -55,14 +59,3 @@ Cypress.Commands.add('buscaContaPorNome', name => {
         })
     })
 })
-
-//TODO Caso queria usar como comands
-/* Cypress.Commands.add('reset', () => {
-    cy.getToken(login).then(token => {
-        cy.request({
-            method: 'GET',
-            url: 'https://barrigarest.wcaquino.me/reset',
-            headers: { Authorization: `JWT ${token}` },
-        })
-    })
-}) */

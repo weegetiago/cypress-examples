@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+//Front: https://barrigareact.wcaquino.me
+//API: https://barrigarest.wcaquino.me
+
 describe('Testes de API', () => {
 
     let token
@@ -42,60 +45,44 @@ describe('Testes de API', () => {
             qs: {
                 nome: 'Conta para alterar'
             }
-        })
-            .then(resposta => {
-                cy.request({
-                    method: 'PUT',
-                    url: `/contas/${resposta.body[0].id}`,
-                    headers: { Authorization: `JWT ${token}` },
-                    body: {
-                        nome: 'WEEGE - C03 Update de uma conta',
-                    }
-                }).then(res => {
-                    expect(res.status).to.be.equal(200)
-                })
-            })
-
-    })
-
-    Cypress.Commands.add('buscaContaPorNome', name => {
-        cy.getToken('tw@tw', 'tw').then(token => { //login?
+        }).then(resposta => {
             cy.request({
-                method: 'GET',
-                url: '/contas',
+                method: 'PUT',
+                url: `/contas/${resposta.body[0].id}`,
                 headers: { Authorization: `JWT ${token}` },
-                qs: {
-                    nome: name
+                body: {
+                    nome: 'WEEGE - C03 Update de uma conta',
                 }
             }).then(res => {
-                return res.body[0].id
+                expect(res.status).to.be.equal(200)
             })
         })
+
     })
 
-    it.only('C04 Cria uma transação', () => {
-        cy.buscaContaPorNome('Conta para movimentacoes',)
-            .then(contaId => {
-                cy.request({
-                    method: 'POST',
-                    url: '/transacoes',
-                    headers: { Authorization: `JWT ${token}` },
-                    body: {
-                        conta_id: contaId,
-                        data_pagamento: "24/03/2021",
-                        data_transacao: "24/03/2021",
-                        descricao: "desc",
-                        envolvido: "inter",
-                        status: true,
-                        tipo: "REC",
-                        valor: "123"
-                    }
-                })
-            })
+    it('C04 Cria uma transação dentro de uma conta', () => {
+        cy.buscaContaPorNome('Conta para movimentacoes').then(contaId => {
+            cy.request({
+                method: 'POST',
+                url: '/transacoes',
+                headers: { Authorization: `JWT ${token}` },
+                body: {
+                    conta_id: contaId,
+                    data_pagamento: Cypress.moment().add({ days: 1 }).format('DD/MM/YYYY'),
+                    data_transacao: Cypress.moment().format('DD/MM/YYYY'),
+                    descricao: "desc",
+                    envolvido: "inter",
+                    status: true,
+                    tipo: "REC",
+                    valor: "123"
+                }
+            }).as('response')
+        })
+        cy.get('@response').its('status').should('be.equal', 201)
+        cy.get('@response').its('status').should('exist')
     })
 
 })
-
 
 const login = {
     user: 'tw@tw',
