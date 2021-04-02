@@ -4,3 +4,9 @@ cypress/screenshots/testes/cpf/consultaCpf.js/Testes QA -- C03 - Consulta sem in
 cypress/videos/testes/cpf/consultaCpf.js.mp4
 cypress/videos/testes/cpf/consultaCpf.js.mp4.meta
 cypress/videos/testes/cpf/consultaCpf.js-compressed.mp4
+cypress/screenshots/frontEnd/login/login.js/Testes de Login -- 01-Tenta acessar conta do gmail (failed).png
+cypress/screenshots/frontEnd/login/login.js/Testes de Login -- 02-Tenta acessar sem informar conta do gmail (failed).png
+cypress/videos/backEnd/barrigarest.js.mp4
+cypress/videos/frontEnd/cpf/consultaCpf.js.mp4
+cypress/videos/frontEnd/login/login.js.mp4
+cypress/videos/frontEnd/maps/maps.js.mp4

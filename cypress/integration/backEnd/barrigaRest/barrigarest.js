@@ -60,7 +60,7 @@ describe('Testes de API', () => {
 
     })
 
-    it('C04 Cria uma transação dentro de uma conta', () => {
+    it('C04 Cria transação em uma conta', () => {
         cy.buscaContaPorNome('Conta para movimentacoes').then(contaId => {
             cy.request({
                 method: 'POST',
@@ -80,6 +80,36 @@ describe('Testes de API', () => {
         })
         cy.get('@response').its('status').should('be.equal', 201)
         cy.get('@response').its('status').should('exist')
+    })
+
+    it('C05 Verifica saldo conta', () => {
+        cy.request({
+            url: '/saldo',
+            method: 'GET',
+            headers: { Authorization: `JWT ${token}` }
+        }).then(r => {
+            let saldoContaX = null
+            r.body.forEach(c => {
+                if (c.conta === 'Conta para saldo') saldoContaX = c.saldo
+            })
+            expect(saldoContaX).to.be.equal('534.00')
+        })
+    })
+
+    it('C06 Delete transação', () => {
+        cy.request({
+            method: 'GET',
+            url: '/transacoes',
+            headers: { Authorization: `JWT ${token}` },
+            qs: { descricao: 'Movimentacao para exclusao' }
+        }).then(res => {
+            cy.request({
+                url: `/transacoes/${res.body[0].id}`,
+                method: 'DELETE',
+                headers: { Authorization: `JWT ${token}`},
+            }).as('response')
+        })
+        cy.get('@response').its('status').should('be.equal', 204)
     })
 
 })
