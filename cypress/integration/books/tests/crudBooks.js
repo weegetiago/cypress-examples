@@ -33,7 +33,7 @@ describe('CRUDS de livros', () => {
         })
     });
 
-    it.only('05 Alterar um livro', () => {
+    it('05 Alterar um livro', () => {
         GETBooks.allBooks().then((resAllBooks) => {
             PUTBooks.changeBook(resAllBooks.body[0].ID).should((resChangeBook) => {
                 //expect(resChangeBook.status).to.eq(200);

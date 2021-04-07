@@ -6,11 +6,6 @@ https://www.cypress.io/
 # Subir o projeto:
 ./node_modules/.bin/cypress open
 
-# Para executar os testes consumindo menos RAM da maquina:
+# Rodar testes por linha de comando:
 ./node_modules/.bin/cypress run
 
-# Para trabalhar com xpath:
-npm install -D cypress-xpath
-
-# Para trabalhar com upload de arquivos:
-npm install --save-dev cypress-file-upload
