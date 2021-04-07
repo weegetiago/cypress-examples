@@ -1,3 +1,4 @@
 {
-    "baseUrl":"https://barrigarest.wcaquino.me"
+    "baseUrl": "https://fakerestapi.azurewebsites.net/api/v1",
+    "video": false
 }
