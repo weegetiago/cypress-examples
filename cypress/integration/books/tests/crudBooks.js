@@ -1,7 +1,7 @@
 import * as DELETEBooks from '../../../support/books/requests/deleteBooks.request';
 import * as GETBooks from '../../../support/books/requests/getBooks.request';
 import * as POSTBooks from '../../../support/books/requests/postBooks.request';
-import * as PUTBooks from '../../../support/books/requests/putBooks.request'; 
+import * as PUTBooks from '../../../support/books/requests/putBooks.request';
 
 describe('CRUDS de livros', () => {
 
@@ -33,7 +33,7 @@ describe('CRUDS de livros', () => {
         })
     });
 
-    it('05 Alterar um livro', () => {
+    it.only('05 Alterar um livro', () => {
         GETBooks.allBooks().then((resAllBooks) => {
             PUTBooks.changeBook(resAllBooks.body[0].ID).should((resChangeBook) => {
                 //expect(resChangeBook.status).to.eq(200);
