@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-    "baseUrl_":"https://barrigarest.wcaquino.me",
-=======
->>>>>>> 089b73f67df1996fc7bdd30360cdfabb5fee59fa
     "baseUrl": "https://fakerestapi.azurewebsites.net/api/v1",
     "video": false
 }

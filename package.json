@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "cypress-examples",
-=======
-  "name": "cypress-examples-api",
->>>>>>> 089b73f67df1996fc7bdd30360cdfabb5fee59fa
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
