@@ -1,7 +1,7 @@
 import * as DELETEBooks from '../../../support/books/requests/deleteBooks.request';
 import * as GETBooks from '../../../support/books/requests/getBooks.request';
 import * as POSTBooks from '../../../support/books/requests/postBooks.request';
-import * as PUTBooks from '../../../support/books/requests/putBooks.request';
+import * as PUTBooks from '../../../support/books/requests/putBooks.request'; 
 
 describe('CRUDS de livros', () => {
 

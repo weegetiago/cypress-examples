@@ -8,4 +8,4 @@ function deleteBook(idBook) {
     })
   }
   
-  export { deleteBook };
+  export { deleteBook }; 
