@@ -23,3 +23,39 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+const login = {
+    user: 'tw@tw',
+    pass: 'tw'
+}
+
+Cypress.Commands.add('getToken', (user, pass) => {
+    cy.request({
+        method: 'POST',
+        url: '/signin',
+        body: {
+            email: login.user,
+            redirecionamento: false,
+            senha: login.pass
+        }
+    })
+        .its('body.token').should('not.be.empty')
+        .then(token => {
+            return token
+        })
+})
+
+Cypress.Commands.add('buscaContaPorNome', name => {
+    cy.getToken(login).then(token => {
+        cy.request({
+            method: 'GET',
+            url: '/contas',
+            headers: { Authorization: `JWT ${token}` },
+            qs: {
+                nome: name
+            }
+        }).then(res => {
+            return res.body[0].id
+        })
+    })
+})
