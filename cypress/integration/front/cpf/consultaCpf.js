@@ -5,7 +5,7 @@ import ConsultaCpf from '/cypress-examples/cypress/pages/cpf/cpf.js';
 const formCriarConta = '#sign_up_form';
 const formCpfInput = '//*[@data-gtm-type="form"]';
 
-context('Reliza consultas sobre o CPF', () => {
+context('Reliza consultas sobre o CPF', () => { 
 
     beforeEach(() => {
         ConsultaCpf.acessaUrl()
