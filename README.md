@@ -9,3 +9,5 @@ https://www.cypress.io/
 # Rodar testes por linha de comando:
 ./node_modules/.bin/cypress run
 
+# Testes de API do book:
+Este mostra dois formatos diferentes de organizar o projeto. 

@@ -3,7 +3,7 @@ import * as GETBooks from '../../../support/books/requests/getBooks.request';
 import * as POSTBooks from '../../../support/books/requests/postBooks.request';
 import * as PUTBooks from '../../../support/books/requests/putBooks.request';
 
-describe('CRUDS de livros', () => {
+describe('CRUDS de livros (exemplo formato 2)', () => {
 
     it('01 Listar todos os livros', () => {
         GETBooks.allBooks().should((response) => {
